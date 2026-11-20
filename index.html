@@ -626,15 +626,20 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
   /* ---- intro: suspense, a marca ainda não aparece ---- */
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   scrollTo(0, 0); if (lenis) lenis.scrollTo(0, { immediate: true });
-  const intro = gsap.timeline({ defaults: { ease: 'expo.out' } });
+  const intro = gsap.timeline({ paused: true, defaults: { ease: 'expo.out' } });
   gsap.set('.intro__bg', { scale: 1.12, opacity: 0 });
   intro
     .to('.intro__bg', { opacity: 1, scale: 1, duration: 3.2, ease: 'power2.out' })
-    .from(words(document.querySelector('.intro h1')), { yPercent: 115, opacity: 0, filter: 'blur(10px)', duration: 1.1, stagger: .06 }, .3)
+    .from(words(document.querySelector('.intro h1')), { yPercent: 120, opacity: 0, filter: 'blur(12px)', duration: 1.5, stagger: .12 }, .5)
     .from('.intro .scroll-cue', { opacity: 0, duration: 1 }, '-=.6')
     .from('.nav', { opacity: 0, y: -20, duration: 1 }, '<');
 
-  setTimeout(() => { if (intro.progress() < 1) intro.progress(1); }, 4500);
+  // só começa quando fontes e imagens estiverem prontas, para a entrada ser vista
+  let started = false;
+  const startIntro = () => { if (started) return; started = true; intro.play(0); setTimeout(() => { if (intro.progress() < 1) intro.progress(1); }, 6000); };
+  const loaded = document.readyState === 'complete' ? Promise.resolve() : new Promise(r => addEventListener('load', r, { once: true }));
+  Promise.all([document.fonts ? document.fonts.ready : Promise.resolve(), loaded]).then(() => requestAnimationFrame(() => setTimeout(startIntro, 150)));
+  setTimeout(startIntro, 3500);
 
   /* ---- intro scroll: a frase se afasta ---- */
   gsap.to('.intro__in', { scale: .9, opacity: 0, filter: 'blur(6px)', ease: 'none', scrollTrigger: { trigger: '.intro', start: 'top top', end: 'bottom 30%', scrub: true } });
