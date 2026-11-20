@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fresa Confeitaria</title>
+<meta name="description" content="Apresentação de marca da Fresa, uma confeitaria delivery de verdade: história, conceito, cores, texturas e embalagens.">
+<meta name="theme-color" content="#901317">
+<meta property="og:title" content="Fresa Confeitaria — Apresentação de marca">
+<meta property="og:description" content="Há detalhes que transformam um doce em lembrança.">
+<meta property="og:image" content="assets/hero.jpg">
+<script>if("scrollRestoration" in history)history.scrollRestoration="manual";</script>
+<link rel="icon" href="assets/monograma.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Momo+Signature&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#901317; --red-deep:#6f0d11; --red-card:#7c1014;
+  --cream:#fae8d0; --cream-2:#f4dcc0; --pink:#df868c; --olive:#575931; --caramel:#cb8957;
+  --ink:#5a0c0f;
+  --sans:"Parkinsans",system-ui,sans-serif; --serif:"Libre Baskerville",Georgia,serif; --script:"Momo Signature",cursive;
+  --gutter:clamp(16px,5vw,80px); --max:1320px; --r:28px;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:400;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+em{font-family:var(--serif);font-style:italic;font-weight:400}
+.wrap{width:100%;max-width:calc(var(--max) + var(--gutter)*2);margin:0 auto;padding:0 var(--gutter)}
+.eyebrow{font-size:.78rem;letter-spacing:.28em;text-transform:uppercase;font-weight:500;opacity:.75}
+.skip{position:fixed;left:16px;top:-60px;z-index:200;background:var(--cream);color:var(--red);padding:10px 16px;border-radius:99px;transition:top .2s}
+.skip:focus{top:16px}
+:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+
+/* ---------- intro (suspense) ---------- */
+.intro{position:relative;height:100svh;min-height:560px;background:var(--red);color:var(--cream);display:grid;place-items:center;text-align:center;overflow:hidden}
+.intro__bg{position:absolute;inset:-12% 0;background:var(--red) url(assets/damasco.jpg) center/420px repeat;will-change:transform}
+.intro::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(144,19,23,.55) 20%,rgba(144,19,23,0) 70%)}
+.intro__in{position:relative;z-index:2;padding:0 var(--gutter);display:grid;justify-items:center;gap:32px}
+.intro h1{font-size:clamp(2rem,5.4vw,4.8rem);font-weight:300;line-height:1.12;letter-spacing:-.02em;max-width:17ch}
+.intro h1 em{color:var(--pink)}
+.intro__hint{font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;opacity:.7}
+.intro .scroll-cue{position:absolute;bottom:clamp(24px,5vh,48px);left:50%;translate:-50% 0;flex-direction:column;z-index:2;color:var(--cream)}
+.dots{display:inline-flex;gap:6px}.dots i{width:5px;height:5px;border-radius:50%;background:var(--pink);animation:dot 1.4s infinite ease-in-out}
+.dots i:nth-child(2){animation-delay:.2s}.dots i:nth-child(3){animation-delay:.4s}
+@keyframes dot{0%,80%,100%{opacity:.2;transform:scale(.8)}40%{opacity:1;transform:scale(1)}}
+
+/* ---------- nav ---------- */
+.progress{position:fixed;left:0;top:0;height:3px;width:100%;background:var(--pink);transform-origin:0 50%;transform:scaleX(0);z-index:90}
+.nav{position:fixed;top:14px;left:0;right:0;margin:0 auto;z-index:80;width:fit-content;max-width:calc(100% - 2*var(--gutter));display:flex;align-items:center;justify-content:center;gap:16px;padding:6px;border-radius:99px;background:rgba(250,232,208,.72);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);box-shadow:0 6px 30px rgba(80,10,12,.08);transition:top .6s var(--ease)}
+.nav.is-hidden{top:-90px}
+.nav__links{display:flex;gap:4px;list-style:none}
+.nav__links a{display:block;text-decoration:none;color:var(--red);font-size:.88rem;padding:10px 16px;border-radius:99px;position:relative;transition:background .3s,color .3s}
+.nav__links a:hover{background:var(--red);color:var(--cream)}
+.nav__burger{display:none;width:44px;height:44px;border-radius:50%;border:0;background:var(--red);color:var(--cream);cursor:pointer}
+.nav__burger span{display:block;width:16px;height:1.5px;background:currentColor;margin:4px auto;transition:transform .4s var(--ease)}
+.nav.open .nav__burger span:first-child{transform:translateY(2.75px) rotate(45deg)}
+.nav.open .nav__burger span:last-child{transform:translateY(-2.75px) rotate(-45deg)}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:52px;padding:0 26px;border-radius:99px;background:var(--cream);color:var(--red);text-decoration:none;font-weight:500;font-size:.95rem;border:0;cursor:pointer;transition:transform .35s var(--ease),background .3s,color .3s}
+.btn:hover{transform:translateY(-2px);background:var(--pink);color:var(--cream)}
+.btn:active{transform:translateY(0) scale(.97)}
+.btn svg{width:16px;transition:transform .35s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+
+.scroll-cue{display:flex;align-items:center;gap:10px;font-size:.72rem;letter-spacing:.24em;text-transform:uppercase}
+.scroll-cue i{width:1px;height:46px;background:rgba(250,232,208,.35);position:relative;overflow:hidden;display:block}
+.scroll-cue i::after{content:"";position:absolute;left:0;top:-50%;width:1px;height:50%;background:var(--pink);animation:cue 1.8s var(--ease) infinite}
+@keyframes cue{to{top:100%}}
+
+/* ---------- origem ---------- */
+.origem{padding:clamp(90px,14vh,160px) 0;min-height:100svh;display:flex;align-items:center}
+.origem .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,100px);align-items:center}
+.h-xl{font-size:clamp(2.2rem,5.2vw,4.6rem);line-height:1.06;font-weight:400;letter-spacing:-.02em;color:var(--red)}
+.h-l{font-size:clamp(1.9rem,4vw,3.4rem);line-height:1.1;font-weight:400;letter-spacing:-.015em}
+.lead{font-size:clamp(1.02rem,1.3vw,1.18rem);max-width:44ch;margin-top:28px;color:#6b3a2c}
+.quote{font-family:var(--serif);font-style:italic;color:var(--red);font-size:clamp(1.05rem,1.5vw,1.3rem);margin-top:22px}
+.frame{border-radius:var(--r);overflow:hidden;position:relative;background:var(--cream-2)}
+.frame img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}
+.frame:hover img{transform:scale(1.03)}
+.origem .frame{aspect-ratio:4/5.6;max-height:78vh;justify-self:end;width:100%}
+.par{will-change:transform}
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.split .w>span{display:inline-block}
+
+/* ---------- nasce (pinned zoom) ---------- */
+.nasce{position:relative;height:100svh;background:var(--pink);overflow:hidden}
+.nasce__stage{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.nasce__title{position:relative;z-index:2;color:var(--red);font-size:clamp(2rem,5vw,4.4rem);font-weight:400;letter-spacing:-.02em;line-height:1.1}
+.nasce__title strong{font-weight:600}
+.nasce__title strong{display:block;font-family:var(--serif);font-style:italic;font-weight:400;font-size:2.6em;line-height:1.05;margin-top:.1em}
+.nasce__title strong span{display:inline-block}
+.nasce__fill{position:absolute;inset:0;background:var(--red);clip-path:circle(0% at 50% 50%);z-index:3}
+.nasce__after{position:absolute;inset:0;z-index:4;display:grid;place-items:center;text-align:center;color:var(--cream);padding:0 var(--gutter);opacity:0}
+.nasce__after p{font-size:clamp(1.4rem,3.2vw,2.8rem);font-weight:300;line-height:1.3;max-width:24ch}
+.nasce__after em{color:var(--pink)}
+
+/* ---------- pilares ---------- */
+.pilares{background:var(--red);color:var(--cream);padding:clamp(90px,14vh,160px) 0;min-height:100svh;display:flex;align-items:center}
+.pilares .head{text-align:center;margin-bottom:clamp(48px,8vh,90px)}
+.pilares .head em{display:block;font-size:1.35em;color:var(--cream)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--red-card);border:1px solid rgba(250,232,208,.1);border-radius:var(--r);padding:clamp(28px,3vw,44px);min-height:300px;display:flex;flex-direction:column;justify-content:space-between;gap:40px;position:relative;overflow:hidden;transition:translate .5s var(--ease),background .5s}
+.card:hover{translate:0 -4px;background:#86141a}
+.card__num{font-size:.85rem;font-weight:600;letter-spacing:.1em;display:flex;justify-content:space-between;align-items:center}
+.card__num img{width:38px;opacity:.9;transition:transform .8s var(--ease)}
+.card:hover .card__num img{transform:rotate(-12deg) scale(1.1)}
+.card h3{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.4rem,2vw,1.8rem);line-height:1.2;margin-bottom:12px}
+.card p{opacity:.8;font-size:.98rem;max-width:30ch}
+
+/* ---------- momentos (horizontal) ---------- */
+.momentos{position:relative;background:var(--cream);overflow:hidden}
+.momentos__pin{height:100svh;display:flex;flex-direction:column;justify-content:center;gap:clamp(28px,5vh,56px);padding:clamp(80px,10vh,110px) 0 clamp(30px,5vh,60px)}
+.momentos__head{display:flex;justify-content:space-between;align-items:end;gap:24px}
+.momentos__head .h-l{color:var(--red)}
+.momentos__head p{max-width:32ch;color:#6b3a2c}
+.track{display:flex;gap:clamp(14px,1.6vw,24px);padding:0 var(--gutter);width:max-content;will-change:transform}
+.track .frame{width:clamp(250px,30vw,440px);height:min(56vh,560px);flex:none}
+.track .frame:nth-child(even){height:min(46vh,460px);align-self:center}
+.track .frame img{width:120%;max-width:none;margin-left:-10%}
+
+/* ---------- nome ---------- */
+.nome{background:var(--red);color:var(--cream);min-height:100svh;padding:clamp(90px,14vh,160px) 0 0;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;gap:60px}
+.nome .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,90px);align-items:center}
+.nome__word{font-family:var(--serif);font-style:italic;font-size:clamp(4.5rem,11vw,10rem);line-height:.9;letter-spacing:-.03em}
+.nome__phon{font-size:.95rem;letter-spacing:.12em;opacity:.7;margin:18px 0 30px}
+.nome__def{font-size:clamp(1.15rem,1.7vw,1.5rem);font-weight:500;max-width:28ch}
+.nome .lead{color:rgba(250,232,208,.82)}
+.nome__pics{position:relative;height:min(68vh,620px)}
+.nome__pics .frame{position:absolute;width:58%;aspect-ratio:1}
+.nome__pics .a{right:0;top:0}
+.nome__pics .b{left:0;bottom:0;border:6px solid var(--red)}
+.marquee{overflow:hidden;white-space:nowrap;padding:22px 0 30px;border-top:1px solid rgba(250,232,208,.15)}
+.marquee__in{display:inline-flex;gap:40px;font-family:var(--serif);font-style:italic;font-size:clamp(2.4rem,6vw,5.4rem);line-height:1;will-change:transform}
+.marquee__in span{color:transparent;-webkit-text-stroke:1px rgba(250,232,208,.55)}
+.marquee__in span.fill{color:var(--pink);-webkit-text-stroke:0}
+
+/* ---------- finalmente: a marca surge ---------- */
+.final{position:relative;height:100svh;background:var(--cream);overflow:hidden}
+.final__stage{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.final__txt{position:relative;z-index:4;color:var(--red);font-size:clamp(1.8rem,4vw,3.4rem);font-weight:300}
+.final__dark{position:absolute;inset:0;background:var(--red-deep);opacity:0;z-index:1}
+.final__photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%;opacity:0;scale:1.15;z-index:2}
+.final__logo{position:absolute;z-index:3;width:clamp(240px,34vw,500px);height:auto;overflow:visible}
+.final__logo .wm-fresa{fill:transparent;stroke:var(--cream);stroke-width:.8}
+.final__logo .wm-conf{fill:var(--cream);opacity:0}
+.final__glow{position:absolute;z-index:2;width:60vmin;height:60vmin;border-radius:50%;background:radial-gradient(circle,rgba(223,134,140,.45),transparent 70%);opacity:0;filter:blur(20px)}
+
+/* ---------- aplicação ---------- */
+.aplic{background:var(--cream);height:100svh;position:relative;overflow:hidden;display:grid;place-items:center}
+.aplic__frame{position:absolute;inset:0;overflow:hidden;will-change:clip-path}
+.aplic__frame::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(60,8,10,.7),rgba(60,8,10,0) 45%)}
+.aplic__frame img{width:100%;height:100%;object-fit:cover;object-position:center 30%;will-change:transform}
+.aplic__cap{position:absolute;left:0;right:0;bottom:clamp(28px,6vh,60px);color:var(--cream);z-index:2;display:flex;justify-content:space-between;align-items:end;gap:20px;opacity:0}
+.aplic__cap .h-l{max-width:16ch;text-shadow:0 2px 30px rgba(60,10,10,.35)}
+
+/* ---------- textura (stacked) ---------- */
+.textura{background:var(--red);color:var(--cream);padding:clamp(90px,14vh,150px) 0 clamp(60px,10vh,120px)}
+.textura__head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:clamp(40px,7vh,70px)}
+.textura__head p{max-width:34ch;opacity:.82}
+.stack{display:grid;gap:0}
+.stack__card{position:sticky;top:clamp(80px,12vh,110px);height:min(74vh,720px);border-radius:var(--r);overflow:hidden;margin-bottom:6vh;transform-origin:50% 0;box-shadow:0 -20px 60px rgba(40,4,6,.35)}
+.stack__card img{width:100%;height:100%;object-fit:cover}
+.stack__card .label{position:absolute;left:24px;bottom:24px;background:rgba(250,232,208,.92);color:var(--red);border-radius:99px;padding:10px 18px;font-size:.85rem;font-weight:500;letter-spacing:.04em}
+.stack__card .shade{position:absolute;inset:0;background:#2a0406;opacity:0;pointer-events:none}
+
+/* ---------- paleta ---------- */
+.paleta{background:var(--cream);min-height:100svh;padding:clamp(90px,14vh,150px) 0;display:flex;align-items:center}
+.paleta .h-l{color:var(--red);margin-bottom:12px}
+.paleta__sub{color:#6b3a2c;margin-bottom:clamp(36px,6vh,60px);max-width:46ch}
+.swatches{display:flex;gap:12px;height:clamp(260px,36vh,380px)}
+.sw{flex:1;border-radius:var(--r);border:0;cursor:pointer;position:relative;text-align:left;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;font:inherit;transition:flex-grow .8s var(--ease),scale .4s var(--ease)}
+.sw:hover,.sw:focus-visible{flex-grow:2.2}
+.sw:active{scale:.98}
+.sw b{font-weight:500;font-size:1.05rem;display:block}
+.sw small{font-size:.82rem;letter-spacing:.08em;opacity:.8}
+.sw .copy{position:absolute;top:20px;right:20px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:0;transition:opacity .4s}
+.sw:hover .copy{opacity:.8}
+.type-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.type-card{border-radius:var(--r);background:var(--cream-2);padding:clamp(24px,3vw,40px);display:flex;align-items:center;gap:clamp(20px,3vw,40px);color:var(--red)}
+.type-card .aa{font-size:clamp(3.6rem,7vw,6rem);line-height:1}
+.type-card p{font-size:.95rem;color:#6b3a2c}
+.type-card p b{display:block;color:var(--red);font-weight:500;font-size:1.1rem}
+.toast{position:fixed;left:50%;bottom:28px;translate:-50% 0;background:var(--red);color:var(--cream);padding:12px 22px;border-radius:99px;font-size:.9rem;z-index:120;opacity:0;transform:translateY(20px);transition:opacity .4s,transform .5s var(--ease);pointer-events:none}
+.toast.show{opacity:1;transform:none}
+
+/* ---------- doce ---------- */
+.doce{position:relative;height:100svh;overflow:hidden;display:grid;place-items:center;text-align:center;color:var(--cream)}
+.doce img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;scale:1.3}
+.doce::after{content:"";position:absolute;inset:0;background:radial-gradient(closest-side,rgba(70,6,8,.55),rgba(70,6,8,.15))}
+.doce h2{position:relative;z-index:2;font-size:clamp(2.4rem,7vw,6.4rem);font-weight:400;line-height:1.02;letter-spacing:-.02em;max-width:13ch}
+.doce h2 em{color:var(--cream)}
+
+/* ---------- embalagens ---------- */
+.emb{background:var(--cream);padding:clamp(90px,14vh,150px) 0 clamp(60px,10vh,110px)}
+.emb .h-l{color:var(--red);max-width:18ch}
+.emb__head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:clamp(36px,6vh,60px)}
+.emb__head p{max-width:34ch;color:#6b3a2c}
+.bento{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:repeat(2,min(32vh,320px));gap:14px}
+.bento .frame:first-child{grid-row:span 2}
+.bento .frame:nth-child(2){grid-row:span 2}
+.bento .frame:nth-child(3){grid-row:span 2}
+
+/* ---------- social ---------- */
+.social{background:var(--red);color:var(--cream);min-height:100svh;position:relative;overflow:hidden;padding:clamp(90px,14vh,150px) 0;display:flex;flex-direction:column;justify-content:center}
+.social__script{position:absolute;top:50%;left:0;translate:0 -50%;font-family:var(--script);color:var(--pink);font-size:clamp(7rem,22vw,22rem);line-height:.85;white-space:nowrap;opacity:.55;pointer-events:none}
+.social__script div:last-child{padding-left:30vw}
+.social .wrap{position:relative;z-index:2}
+.social__head{text-align:center;margin-bottom:clamp(36px,6vh,60px)}
+.phones{display:flex;justify-content:center;gap:clamp(14px,2vw,28px)}
+.phone{width:clamp(200px,20vw,280px);aspect-ratio:9/16;border-radius:24px;overflow:hidden;position:relative;box-shadow:0 30px 60px rgba(40,4,6,.35);flex:none}
+.phone img.bg{width:100%;height:100%;object-fit:cover}
+.phone .script{position:absolute;top:16%;left:0;right:0;text-align:center;font-family:var(--script);font-size:clamp(1.8rem,2.6vw,2.4rem);line-height:.9;rotate:-8deg;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.3)}
+.phone.olive{background:var(--olive);display:grid;place-items:center}
+.phone.olive::before{content:"";position:absolute;inset:0;background:url(assets/monograma-cream.svg) 0 0/56px repeat;opacity:.07}
+.phone.olive img{width:62%;position:relative}
+
+/* ---------- close ---------- */
+.close{background:var(--cream);min-height:100svh;display:grid;place-items:center;text-align:center;padding:clamp(90px,14vh,150px) 0 0;position:relative;overflow:hidden}
+.close .wrap{display:grid;justify-items:center;gap:32px}
+.close img.logo{width:clamp(220px,30vw,420px)}
+.close .selo{width:clamp(120px,14vw,170px);animation:spin 40s linear infinite}
+@keyframes spin{to{rotate:360deg}}
+.close p.big{font-size:clamp(1.5rem,3.2vw,2.6rem);font-weight:300;color:var(--red);max-width:22ch;line-height:1.25}
+.close .btn{background:var(--red);color:var(--cream)}
+.close .btn:hover{background:var(--pink)}
+.foot{width:100%;align-self:end;border-top:1px solid rgba(144,19,23,.15);margin-top:clamp(60px,10vh,100px);padding:22px 0 28px;font-size:.82rem;color:#7a4a3a}
+.foot .wrap{display:flex;justify-content:space-between;gap:16px;grid-auto-flow:column}
+
+/* ---------- som ---------- */
+.sound{position:fixed;right:max(16px,calc(var(--gutter)*.5));bottom:20px;z-index:85;width:46px;height:46px;border-radius:50%;border:0;cursor:pointer;background:rgba(250,232,208,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--red);display:grid;place-items:center;box-shadow:0 6px 24px rgba(80,10,12,.15);transition:translate .35s var(--ease),background .3s}
+.sound:hover{translate:0 -2px}
+.sound svg{width:20px;height:20px}
+.sound .wave{opacity:.25;transition:opacity .3s}
+.sound.is-on .wave{opacity:1}
+.sound .bars{display:none}
+/* ---------- cursor ---------- */
+.cursor{position:fixed;left:0;top:0;width:12px;height:12px;border-radius:50%;background:var(--pink);pointer-events:none;z-index:150;translate:-50% -50%;mix-blend-mode:multiply;transition:width .35s var(--ease),height .35s var(--ease),opacity .3s;opacity:0}
+.cursor.big{width:54px;height:54px}
+@media (hover:none){.cursor{display:none}}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .nav__links{position:fixed;inset:0;z-index:-1;flex-direction:column;justify-content:center;align-items:center;gap:8px;background:var(--cream);border-radius:0;opacity:0;pointer-events:none;transition:opacity .4s}
+  .nav.open .nav__links{opacity:1;pointer-events:auto}
+  .nav.open{backdrop-filter:none;-webkit-backdrop-filter:none}
+  .nav__links a{font-size:1.6rem;padding:12px 24px}
+  .nav__burger{display:block}
+  .origem .wrap,.nome .wrap{grid-template-columns:1fr}
+  .origem .frame{aspect-ratio:4/4.6;justify-self:stretch}
+  .cards{grid-template-columns:1fr}
+  .card{min-height:0}
+  .momentos__head{flex-direction:column;align-items:start}
+  .nome__pics{height:min(90vw,520px)}
+  .textura__head,.emb__head{flex-direction:column;align-items:start}
+  .swatches{flex-direction:column;height:auto}
+  .sw{min-height:84px;flex-direction:row;justify-content:space-between;align-items:end}
+  .sw:hover,.sw:focus-visible{flex-grow:1}
+  .type-row{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .bento .frame{aspect-ratio:1}
+  .bento .frame:first-child{grid-column:span 2;grid-row:auto;aspect-ratio:16/10}
+  .bento .frame:nth-child(2),.bento .frame:nth-child(3){grid-row:auto}
+  .phones{gap:8px}
+  .phone{width:calc((100vw - 2*var(--gutter) - 16px)/3);border-radius:14px}
+  .phone .script{font-size:1.15rem}
+  .scroll-cue{display:none}
+}
+@media (max-width:560px){
+  .track .frame{width:74vw;height:52vh}
+  .track .frame:nth-child(even){height:44vh}
+  .foot .wrap{flex-direction:column}
+  .stack__card{height:62vh}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition-duration:.01ms!important}
+  .final__logo .wm-fresa{fill:#8C1418;stroke:none}.final__logo .wm-conf{fill:#646638;opacity:1}.final__photo{opacity:1}
+  .aplic__frame{clip-path:none}
+  .aplic__cap,.nasce__after{opacity:1}
+  .nasce__fill{clip-path:none}
+  .nasce__after{background:var(--red)}
+  .nasce__title{display:none}
+  .final__txt{display:none}
+  .momentos__pin{height:auto}
+  .track{overflow-x:auto;width:auto}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#origem">Pular para o conteúdo</a>
+<div class="progress" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"></div>
+<div class="toast" role="status" aria-live="polite"></div>
+<button class="sound" aria-pressed="false" aria-label="Ligar sons"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5h3l4.5-4v13L7 14.5H4z" fill="currentColor" stroke="none"/><path class="wave" d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg></button>
+
+
+<nav class="nav" aria-label="Principal">
+  <ul class="nav__links" id="menu">
+    <li><a href="#origem">Origem</a></li>
+    <li><a href="#nome">O nome</a></li>
+    <li><a href="#textura">Textura</a></li>
+    <li><a href="#paleta">Cores</a></li>
+    <li><a href="#embalagens">Embalagens</a></li>
+  </ul>
+  <button class="nav__burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+</nav>
+
+<main>
+  <!-- INTRO: suspense, sem marca -->
+  <section class="intro" id="topo">
+    <div class="intro__bg" aria-hidden="true"></div>
+    <div class="intro__in">
+      <p class="intro__hint">Uma história em detalhes <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></p>
+      <h1 class="split">Há detalhes que transformam um doce <em>em lembrança.</em></h1>
+    </div>
+    <span class="scroll-cue">Role para descobrir <i></i></span>
+  </section>
+
+  <!-- ORIGEM -->
+  <section class="origem" id="origem">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow" style="color:var(--red);margin-bottom:22px">01 — A origem</p>
+        <h2 class="h-xl split">Tudo começou com a casquinha de um cheesecake</h2>
+        <p class="lead reveal">Foi a atenção a um detalhe da sobremesa favorita que despertou a vontade de experimentar uma receita própria.</p>
+        <p class="quote reveal">Mas ficou tão bom que todo mundo deveria experimentar…</p>
+      </div>
+      <div class="frame clip-in"><img class="par" data-speed="-8" src="assets/cheesecake-tall.jpg" alt="Fatia de cheesecake com calda e morangos frescos"></div>
+    </div>
+  </section>
+
+  <!-- NASCE: zoom through the F -->
+  <section class="nasce" aria-label="E assim nasce a Fresa">
+    <div class="nasce__stage">
+      <h2 class="nasce__title"><span class="nasce__lead">E assim nasce a</span> <strong aria-label="Fresa"><span>F</span><span>r</span><span>e</span><span>s</span><span>a</span></strong></h2>
+      <div class="nasce__fill"></div>
+      <div class="nasce__after"><p>A Fresa celebra os momentos de pausa, os encontros e as comemorações, sendo uma <em>confeitaria de verdade!</em></p></div>
+    </div>
+  </section>
+
+  <!-- PILARES -->
+  <section class="pilares">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow" style="margin-bottom:18px">02 — O que nos guia</p>
+        <h2 class="h-l split">Uma confeitaria delivery <em>de verdade</em></h2>
+      </div>
+      <div class="cards">
+        <article class="card"><div class="card__num">01</div><div><h3>Ingredientes genuínos</h3><p>Sabor real, sem apelo a sabores sintéticos.</p></div></article>
+        <article class="card"><div class="card__num">02</div><div><h3>Cuidado nos detalhes</h3><p>A apresentação importa tanto quanto a receita.</p></div></article>
+        <article class="card"><div class="card__num">03</div><div><h3>Acolhimento</h3><p>Do cotidiano às celebrações mais especiais.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MOMENTOS: horizontal -->
+  <section class="momentos">
+    <div class="momentos__pin">
+      <div class="wrap momentos__head">
+        <h2 class="h-l split">Para os momentos <em>que importam</em></h2>
+        <p>Da pausa do meio da tarde ao bolo da comemoração: cada doce pensado para virar lembrança.</p>
+      </div>
+      <div class="track">
+        <div class="frame"><img src="assets/strawberries.jpg" alt="Morangos frescos de perto"></div>
+        <div class="frame"><img src="assets/cupcakes.jpg" alt="Cupcakes com chantilly e morango"></div>
+        <div class="frame"><img src="assets/cheesecake2.jpg" alt="Cheesecake inteiro com calda de morango"></div>
+        <div class="frame"><img src="assets/bowl.jpg" alt="Tigela de cerâmica com morangos"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOME -->
+  <section class="nome" id="nome">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow" style="margin-bottom:18px">03 — O nome</p>
+        <h2 class="nome__word split">Fresa</h2>
+        <p class="nome__phon">/ˈfɾe.sa/ · substantivo feminino</p>
+        <p class="nome__def reveal">Fresa significa morango em espanhol.</p>
+        <p class="lead reveal">Fugindo do velho inglês, a Fresa aprofunda sua base conceitual em uma cultura muito rica e mais próxima da nossa.</p>
+      </div>
+      <div class="nome__pics">
+        <div class="frame a par" data-speed="-10"><img src="assets/sevilla.jpg" alt="Rua mediterrânea com sacadas floridas e torre de igreja"></div>
+        <div class="frame b par" data-speed="12"><img src="assets/sevilla-door.jpg" alt="Fachada com porta vermelha e flores"></div>
+      </div>
+    </div>
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__in"><span>fresa</span><span class="fill">morango</span><span>fresa</span><span class="fill">morango</span><span>fresa</span><span class="fill">morango</span><span>fresa</span><span class="fill">morango</span><span>fresa</span><span class="fill">morango</span></div>
+    </div>
+  </section>
+
+  <!-- FINALMENTE: logo reveal -->
+  <section class="final" aria-label="A marca">
+    <div class="final__stage">
+      <div class="final__dark"></div>
+      <img class="final__photo" src="assets/hero.jpg" alt="Parede iluminada com folhas, morangos e cheesecake de morango">
+      <div class="final__glow"></div>
+      <h2 class="final__txt">E assim, finalmente…</h2>
+      <svg class="final__logo" viewBox="0 0 439.28 215.53" role="img" aria-label="Fresa Confeitaria"><path class="wm-fresa" d="M87.39 34.01l0 56.14 11.35 0 2.3 0c13.59,0 24.84,-10.53 26,-23.83l1.95 0 0 51.58 -1.95 0c-1.16,-13.3 -12.41,-23.83 -26,-23.83l-2.3 0 -11.35 0 0 60.17 0.04 0c0.68,10.78 9.71,19.39 20.66,19.39l0.12 0 0 2.2 -66.33 0 0 -2.2 0.12 0c10.95,0 19.98,-8.61 20.66,-19.39l0.04 0 0 -120.97c-10.47,0.81 -20.19,3.27 -29.11,7.55 -15.12,6.75 -22.25,26.46 -10.09,33.86 4.87,2.96 11.21,1.87 15.14,-2.07 1.17,-1.17 2.42,-3.24 2.74,-1.04 0.12,0.84 0.08,1.58 -0.02,2.41 -2.87,24.05 -33.27,24.58 -40.03,6.18 -2.08,-5.69 -1.52,-10.42 0.21,-16.04 4.11,-13.3 14.68,-24.8 37.95,-32.25 27.43,-7.98 54.68,-5.92 82.57,-8.5 9.56,-0.89 19.71,-1.42 28.41,-3.48 11.69,-2.78 21.66,-7.42 25.52,-18.69 0.16,-0.48 0.49,-1.35 0.99,-1.17 0.59,0.21 0.69,1.11 0.76,1.62 2.88,19.8 -6.95,37.69 -22.73,46.41 -1.32,0.72 -2.7,1.47 -4.25,1.41 -1.37,-0.05 -2.25,-2.08 -3.32,-3.25 -7.57,-8.32 -16.69,-11.17 -27.42,-12.54 -11.07,-1.43 -21.95,-1.35 -32.63,0.35zm274.92 66.68c-5.07,-5.07 -1.43,-13.34 5.18,-15.11 9.16,-2.46 17.12,3.13 19.54,10.81 0.8,2.56 0.75,4.75 0.81,7.36 0.07,2.77 0.15,5.55 0.22,8.32 0.02,0.7 0.04,1.4 0.06,2.1 -2.99,2.75 -6.94,4.55 -11.33,5.9 -4.4,1.35 -8.77,2.24 -13.17,3.79 -18.53,6.53 -27.64,17.43 -25.68,33.46 2.35,22.97 40.35,29.01 51.53,1.07 3.2,29.68 32.72,38.65 48.96,18.92 0.34,-0.42 0.68,-0.81 0.82,-1.35 0.14,-0.6 -0.17,-0.94 -1.01,-0.55 -0.35,0.16 -0.6,0.36 -0.91,0.58 -13.63,9.68 -25.9,-3.3 -26.28,-19.71 0,-13.25 0,-26.49 0,-39.74 0,-3.21 0.02,-6.11 -0.45,-9.31 -2.38,-16.36 -13.7,-24.02 -28.94,-26.16 -6.19,-0.87 -11.61,-0.62 -17.73,0.84 -14.57,3.47 -24.07,14.3 -22.18,24.39 2.44,15.36 27.84,10.38 24.3,-1.89 -0.77,-2.7 -2.37,-2.32 -3.75,-3.7zm25.76 18.89c0,10.15 0,20.3 0,30.45 -0.92,10.43 -9.55,16.48 -16.7,14.37 -5.28,-1.55 -7.12,-6.23 -8.22,-11.18 -3.07,-13.68 5.56,-26.17 24.93,-33.64zm-168.16 11.59c10.83,-0.49 20.58,-1.82 28.91,-4.26 11.89,-3.49 26.69,-11.16 21.63,-26.14 -2.27,-6.73 -8.63,-12.45 -16.16,-15.4 -6.82,-2.67 -14.91,-2.87 -21.9,-0.68 -13.58,4.25 -29.33,17.95 -34.45,38.5 -2.69,10.79 -2.45,20.53 2.34,30.66 14.15,29.91 57.21,31.62 71.96,4.07 5.77,18.46 27.17,21.92 43.53,16 20.52,-7.45 29.64,-34.43 7.49,-49.24 -11.31,-7.56 -28.44,-12.5 -30.95,-21.92 -3.8,-11.17 8.83,-21.23 20.5,-13.21 3.22,2.45 6.42,7.09 5.54,14 -0.21,1.69 -0.85,3.15 0.37,4.68 0.83,1.04 1.93,1.36 3.19,1.43 6.03,0.31 9.83,-3.21 10.42,-8.94 0.23,-2.22 -0.16,-4.42 -1.39,-6.87 -8.01,-15.79 -37.85,-14.07 -48.96,-2.18 -8.71,9.31 -8.12,21.22 -2.83,29.81 3.94,6.39 9.61,9.22 15.93,12.84 12.49,7.17 24.45,13.21 23.56,23.17 -2.91,22.61 -31.6,15.9 -32.73,-3.67 -0.25,-4.35 1.91,-8.64 -3.67,-10.13 -3.09,-0.82 -5.21,0 -8.04,2.41 -0.89,0.77 -0.79,1.07 -1.26,1.57 -0.29,0.31 -0.98,0 -1.65,0.93 -1.51,2.09 -0.47,6.08 -5.05,10.15 -1.49,1.33 -3.3,2.4 -5.08,3.29 -18.92,9.49 -41.03,-3.59 -41.25,-30.85zm-0.02 -2.68c-1.18,-20.52 3.57,-33.92 14.68,-39.69 9.31,-4.23 16.74,3.45 16.96,14.57 0.09,4.65 -0.82,9.44 -3.62,13.23 -5.3,7.17 -15.33,10.59 -28.01,11.89zm-55.32 -5.95c1.17,-5.1 3.6,-12.32 6.41,-17.86 1.74,-3.45 4.63,-8.03 8.37,-9.61 4,-1.7 7.07,1.31 6.46,6.82 -0.21,1.93 -1.21,3.92 -1.24,5.54 -0.05,2.45 2.07,3.67 5.28,4.28 8.22,-0.07 13.05,-3.67 14.78,-10.47 1.16,-4.59 0.52,-8.47 -2.61,-12.22 -3.79,-4.54 -10.41,-6.24 -18.59,-3.89 -11.21,3.81 -15.65,14.82 -19.47,26.49 0.77,-14.78 -1.06,-24.44 -8.55,-25.41 -5.39,-0.69 -16.53,4.11 -20.24,7.78 -0.99,0.98 -3.16,3.52 -3.03,4.97 0.11,1.18 1.12,0.87 1.89,0.74 4.28,-0.71 6.52,1.05 7.72,4.4 0.83,2.32 0.79,3.72 0.8,6.1 0.03,4.36 0.07,8.73 0.1,13.09l0 33 0 2.68c0,7.46 -5.65,13.67 -12.88,14.55l0 2.31 47.7 0 0 -2.31c-7.23,-0.89 -12.88,-7.09 -12.88,-14.55l0 -2.68 0 -33.76z"/><path class="wm-conf" d="M73.95 197.62c0.61,0 1.17,0.04 1.68,0.13 0.5,0.08 0.95,0.18 1.34,0.27 0.39,0.09 0.74,0.18 1.02,0.27 0.29,0.08 0.53,0.13 0.72,0.13 0.19,0 0.44,-0.06 0.74,-0.18 0.3,-0.12 0.56,-0.35 0.79,-0.69l0 5.19c-0.31,-0.72 -0.64,-1.32 -1.01,-1.81 -0.37,-0.49 -0.79,-0.9 -1.26,-1.2 -0.47,-0.31 -1.02,-0.53 -1.63,-0.67 -0.62,-0.14 -1.33,-0.2 -2.14,-0.2 -0.92,0 -1.73,0.24 -2.43,0.72 -0.69,0.48 -1.28,1.1 -1.76,1.85 -0.48,0.76 -0.84,1.6 -1.08,2.53 -0.24,0.93 -0.36,1.86 -0.36,2.78 0,1.11 0.13,2.12 0.38,3.04 0.25,0.92 0.62,1.71 1.13,2.37 0.5,0.66 1.12,1.17 1.85,1.53 0.73,0.37 1.59,0.55 2.57,0.55 0.71,0 1.37,-0.1 1.96,-0.3 0.6,-0.2 1.15,-0.46 1.66,-0.79 0.51,-0.33 0.99,-0.73 1.42,-1.2 0.43,-0.47 0.84,-0.97 1.23,-1.5l-0.03 0.51c-0.02,0.26 -0.16,0.64 -0.42,1.14 -0.26,0.5 -0.68,1.01 -1.26,1.52 -0.58,0.51 -1.32,0.96 -2.24,1.34 -0.92,0.38 -2.04,0.58 -3.37,0.58 -1.39,0 -2.6,-0.23 -3.63,-0.69 -1.03,-0.46 -1.89,-1.09 -2.57,-1.88 -0.68,-0.79 -1.2,-1.72 -1.55,-2.79 -0.35,-1.07 -0.52,-2.21 -0.52,-3.44 0,-1.4 0.21,-2.66 0.64,-3.77 0.43,-1.12 1.02,-2.07 1.79,-2.86 0.77,-0.79 1.69,-1.4 2.77,-1.83 1.08,-0.43 2.26,-0.64 3.56,-0.64zm30.05 0c1.37,0 2.6,0.25 3.7,0.76 1.1,0.5 2.03,1.17 2.81,1.99 0.77,0.83 1.37,1.77 1.79,2.84 0.42,1.07 0.64,2.17 0.64,3.31 0,1.14 -0.21,2.25 -0.64,3.34 -0.42,1.08 -1.03,2.04 -1.82,2.88 -0.79,0.84 -1.74,1.51 -2.86,2.02 -1.12,0.51 -2.38,0.77 -3.79,0.77 -1.39,0 -2.63,-0.25 -3.73,-0.74 -1.1,-0.49 -2.02,-1.15 -2.77,-1.98 -0.75,-0.83 -1.33,-1.78 -1.73,-2.85 -0.41,-1.07 -0.61,-2.18 -0.61,-3.32 0,-1.19 0.22,-2.33 0.65,-3.43 0.43,-1.09 1.05,-2.05 1.84,-2.88 0.79,-0.83 1.74,-1.48 2.85,-1.97 1.11,-0.49 2.33,-0.73 3.68,-0.73zm0 16.78c1.16,0 2.1,-0.24 2.82,-0.72 0.72,-0.48 1.28,-1.1 1.69,-1.85 0.4,-0.76 0.67,-1.6 0.81,-2.53 0.13,-0.93 0.2,-1.86 0.2,-2.78 0,-0.8 -0.06,-1.66 -0.17,-2.57 -0.12,-0.91 -0.37,-1.75 -0.76,-2.52 -0.39,-0.77 -0.95,-1.4 -1.68,-1.91 -0.72,-0.5 -1.69,-0.75 -2.91,-0.75 -1.22,0 -2.19,0.25 -2.92,0.75 -0.73,0.5 -1.29,1.14 -1.69,1.91 -0.4,0.77 -0.66,1.61 -0.8,2.53 -0.13,0.92 -0.2,1.79 -0.2,2.61 0,0.84 0.07,1.71 0.2,2.63 0.13,0.92 0.4,1.76 0.8,2.53 0.39,0.77 0.95,1.4 1.69,1.91 0.73,0.5 1.71,0.75 2.92,0.75zm23.03 1.1c0.56,-0.2 1,-0.38 1.33,-0.52 0.33,-0.15 0.57,-0.32 0.74,-0.51 0.16,-0.2 0.27,-0.45 0.32,-0.77 0.05,-0.31 0.07,-0.74 0.07,-1.27l0 -12.51c-0.29,-0.36 -0.53,-0.65 -0.72,-0.87 -0.19,-0.22 -0.37,-0.41 -0.53,-0.56 -0.16,-0.15 -0.33,-0.3 -0.49,-0.42 -0.16,-0.13 -0.37,-0.28 -0.62,-0.45l4.22 0 11.36 13.74 0 -10.64c0,-1.09 -0.15,-1.8 -0.43,-2.12 -0.12,-0.14 -0.25,-0.24 -0.41,-0.31 -0.15,-0.07 -0.32,-0.13 -0.49,-0.18 -0.17,-0.05 -0.36,-0.11 -0.55,-0.18 -0.19,-0.07 -0.38,-0.16 -0.58,-0.28l6.39 0c-0.56,0.2 -1,0.38 -1.33,0.53 -0.33,0.14 -0.57,0.31 -0.74,0.51 -0.16,0.2 -0.27,0.45 -0.32,0.76 -0.05,0.31 -0.07,0.73 -0.07,1.28l0 12.38c0.29,0.36 0.54,0.66 0.74,0.9 0.2,0.24 0.39,0.44 0.55,0.61 0.16,0.17 0.33,0.32 0.49,0.46 0.16,0.14 0.36,0.28 0.59,0.43l-4.22 0 -11.42 -13.81 0 10.74c0,1.09 0.14,1.8 0.43,2.12 0.12,0.12 0.25,0.22 0.4,0.3 0.15,0.08 0.32,0.14 0.49,0.19 0.17,0.05 0.36,0.11 0.55,0.18 0.19,0.07 0.39,0.16 0.58,0.28l-6.33 0zm33.52 -17.88l13.62 0c0.21,0 0.35,0.16 0.4,0.47 0.06,0.32 0.08,0.69 0.06,1.11 -0.02,0.43 -0.06,0.86 -0.12,1.3 -0.06,0.44 -0.1,0.79 -0.15,1.05 -0.17,-0.65 -0.38,-1.15 -0.62,-1.51 -0.24,-0.36 -0.56,-0.62 -0.94,-0.79 -0.39,-0.17 -0.86,-0.28 -1.42,-0.32 -0.56,-0.04 -1.24,-0.06 -2.05,-0.06l-4.48 0 0 6.75 3.7 0c0.5,0 0.9,0 1.21,0 0.31,0 0.58,-0.02 0.8,-0.06 0.22,-0.04 0.42,-0.12 0.59,-0.24 0.17,-0.12 0.37,-0.3 0.58,-0.54l0 3.1c-0.21,-0.22 -0.41,-0.39 -0.58,-0.51 -0.17,-0.12 -0.37,-0.21 -0.59,-0.27 -0.22,-0.06 -0.49,-0.09 -0.8,-0.1 -0.31,-0.01 -0.71,-0.01 -1.21,-0.01l-3.7 0 0 5.37c0,0.48 0.01,0.89 0.03,1.24 0.02,0.35 0.07,0.65 0.16,0.9 0.08,0.25 0.22,0.45 0.42,0.61 0.19,0.16 0.46,0.3 0.81,0.42l-5.72 0c0.38,-0.12 0.67,-0.28 0.87,-0.49 0.19,-0.2 0.33,-0.44 0.4,-0.7 0.08,-0.26 0.11,-0.57 0.1,-0.91 -0.01,-0.34 -0.02,-0.7 -0.02,-1.07l0 -11.56c0,-0.49 -0,-0.92 -0.02,-1.27 -0.01,-0.35 -0.06,-0.65 -0.14,-0.89 -0.09,-0.25 -0.22,-0.45 -0.41,-0.61 -0.18,-0.16 -0.45,-0.3 -0.79,-0.4zm28.09 17.9c0.31,-0.14 0.57,-0.27 0.78,-0.4 0.21,-0.13 0.38,-0.29 0.5,-0.5 0.13,-0.2 0.21,-0.48 0.26,-0.83 0.05,-0.35 0.07,-0.82 0.07,-1.42l0 -11.64c0,-0.56 -0.02,-1.02 -0.07,-1.38 -0.05,-0.36 -0.13,-0.64 -0.26,-0.86 -0.12,-0.21 -0.29,-0.38 -0.5,-0.51 -0.21,-0.13 -0.48,-0.25 -0.78,-0.37l14.37 0c0.27,0 0.45,0.15 0.53,0.43 0.09,0.29 0.14,0.64 0.16,1.04 0.02,0.4 0.01,0.82 -0.03,1.25 -0.04,0.44 -0.06,0.81 -0.06,1.11 -0.29,-0.61 -0.58,-1.1 -0.87,-1.45 -0.29,-0.35 -0.62,-0.61 -1,-0.77 -0.38,-0.16 -0.81,-0.26 -1.28,-0.3 -0.48,-0.03 -1.06,-0.05 -1.74,-0.05l-5.55 0 0 6.78 4.45 0c0.56,0 1.02,0 1.37,0 0.36,0 0.66,-0.02 0.91,-0.06 0.25,-0.04 0.48,-0.12 0.69,-0.24 0.21,-0.12 0.46,-0.3 0.75,-0.54l0 2.69c-0.29,-0.24 -0.54,-0.42 -0.75,-0.54 -0.21,-0.12 -0.44,-0.2 -0.69,-0.26 -0.25,-0.05 -0.55,-0.08 -0.9,-0.08 -0.35,0 -0.81,0 -1.39,0l-4.45 0 0 5.65c0,0.77 0.05,1.26 0.15,1.48 0.06,0.12 0.14,0.22 0.26,0.3 0.12,0.08 0.25,0.13 0.39,0.17 0.15,0.03 0.3,0.05 0.46,0.06 0.16,0.01 0.3,0.01 0.42,0.01l3.44 0c0.56,0 1.1,-0.02 1.63,-0.05 0.53,-0.03 0.95,-0.09 1.26,-0.18 0.33,-0.08 0.64,-0.24 0.92,-0.46 0.29,-0.22 0.56,-0.48 0.81,-0.77 0.25,-0.29 0.49,-0.61 0.72,-0.95 0.23,-0.34 0.46,-0.68 0.69,-1.02 -0.06,0.41 -0.11,0.88 -0.16,1.42 -0.05,0.54 -0.12,1.04 -0.2,1.51 -0.09,0.47 -0.21,0.87 -0.36,1.2 -0.15,0.33 -0.36,0.5 -0.61,0.5l-14.37 0zm39.19 -17.9c-0.19,0.15 -0.46,0.27 -0.79,0.35 -0.34,0.08 -0.66,0.2 -0.97,0.37 -0.31,0.17 -0.58,0.44 -0.81,0.81 -0.23,0.37 -0.35,0.92 -0.35,1.65l0 11.56c0,0.72 0.1,1.25 0.32,1.6 0.21,0.35 0.47,0.61 0.77,0.78 0.3,0.17 0.62,0.3 0.95,0.38 0.34,0.09 0.63,0.22 0.88,0.41l-8.67 0c0.18,-0.17 0.43,-0.3 0.75,-0.37 0.33,-0.08 0.65,-0.2 0.97,-0.37 0.32,-0.17 0.59,-0.43 0.82,-0.79 0.23,-0.36 0.35,-0.9 0.35,-1.64l0 -11.56c0,-0.73 -0.11,-1.28 -0.32,-1.65 -0.21,-0.37 -0.47,-0.63 -0.77,-0.81 -0.3,-0.17 -0.61,-0.29 -0.94,-0.37 -0.33,-0.08 -0.62,-0.19 -0.87,-0.35l8.67 0zm14.82 0l16.53 0c0.16,0 0.25,0.14 0.28,0.42 0.03,0.28 0.03,0.63 0.02,1.06 -0.02,0.43 -0.04,0.88 -0.07,1.37 -0.03,0.49 -0.03,0.94 -0.01,1.34 -0.33,-0.49 -0.56,-0.93 -0.71,-1.3 -0.15,-0.38 -0.33,-0.69 -0.54,-0.96 -0.21,-0.26 -0.53,-0.46 -0.94,-0.6 -0.41,-0.14 -1.06,-0.2 -1.92,-0.2l-2.86 0 0 13.68c0,0.72 0.09,1.23 0.28,1.56 0.18,0.32 0.41,0.56 0.68,0.72 0.27,0.15 0.58,0.27 0.92,0.36 0.35,0.08 0.67,0.24 0.98,0.46l-8.88 0c0.35,-0.24 0.69,-0.4 1.03,-0.49 0.33,-0.08 0.64,-0.2 0.92,-0.35 0.28,-0.15 0.5,-0.38 0.66,-0.7 0.16,-0.33 0.25,-0.84 0.25,-1.56l0 -13.68 -2.43 0c-0.9,0 -1.57,0.06 -1.99,0.19 -0.42,0.13 -0.75,0.32 -0.98,0.58 -0.23,0.26 -0.43,0.58 -0.59,0.96 -0.16,0.38 -0.44,0.83 -0.85,1.34 0.02,-0.41 0.02,-0.86 0,-1.34 -0.02,-0.49 -0.03,-0.94 -0.04,-1.37 -0.01,-0.43 0,-0.78 0.04,-1.06 0.04,-0.28 0.12,-0.42 0.23,-0.42zm28.23 17.9c0.33,-0.26 0.56,-0.42 0.71,-0.5 0.15,-0.08 0.3,-0.19 0.45,-0.35 0.17,-0.17 0.39,-0.49 0.66,-0.97 0.27,-0.48 0.54,-1.04 0.81,-1.69l6.48 -14.4 6.27 14.55c0.15,0.38 0.31,0.74 0.46,1.09 0.15,0.35 0.34,0.66 0.55,0.95 0.21,0.28 0.46,0.53 0.74,0.76 0.28,0.22 0.63,0.41 1.05,0.56l-6.97 0c0.21,-0.12 0.41,-0.23 0.59,-0.32 0.18,-0.1 0.34,-0.19 0.48,-0.3 0.13,-0.1 0.25,-0.23 0.33,-0.37 0.09,-0.15 0.13,-0.33 0.13,-0.55 0,-0.38 -0.16,-0.97 -0.49,-1.79l-1.04 -2.53 -6.07 0 -1.24 2.76c-0.16,0.34 -0.26,0.63 -0.32,0.88 -0.06,0.25 -0.09,0.46 -0.09,0.63 0,0.24 0.05,0.44 0.15,0.59 0.1,0.15 0.22,0.29 0.36,0.4 0.14,0.11 0.31,0.21 0.51,0.31 0.19,0.1 0.38,0.19 0.55,0.3l-5.06 0zm5.67 -6.98l5.06 0 -2.46 -5.81 -2.6 5.81zm27.54 3.81l0 -11.56c0,-0.56 -0.02,-1.02 -0.06,-1.36 -0.04,-0.34 -0.12,-0.62 -0.25,-0.84 -0.12,-0.22 -0.32,-0.4 -0.58,-0.54 -0.26,-0.13 -0.61,-0.28 -1.05,-0.43l6.65 0c1.08,0 2.09,0.07 3.02,0.19 0.94,0.13 1.75,0.37 2.44,0.73 0.69,0.36 1.24,0.85 1.65,1.48 0.41,0.63 0.61,1.45 0.61,2.46 0,0.78 -0.12,1.46 -0.36,2.03 -0.24,0.57 -0.57,1.05 -0.98,1.45 -0.41,0.39 -0.9,0.71 -1.45,0.95 -0.55,0.24 -1.12,0.41 -1.72,0.51l3.79 4.6c0.52,0.65 0.98,1.17 1.39,1.57 0.4,0.4 0.76,0.72 1.07,0.96 0.31,0.24 0.58,0.43 0.81,0.56 0.23,0.14 0.43,0.27 0.61,0.41l-3.93 0 -6.65 -8.01c-0.71,-0.09 -1.37,-0.21 -1.97,-0.38l0 5.22c0.04,0.46 0.08,0.86 0.12,1.19 0.04,0.33 0.12,0.62 0.23,0.85 0.12,0.24 0.3,0.45 0.53,0.63 0.24,0.18 0.58,0.35 1,0.5l-6.85 0c0.46,-0.2 0.82,-0.41 1.07,-0.63 0.25,-0.21 0.44,-0.45 0.58,-0.7 0.13,-0.26 0.22,-0.53 0.25,-0.83 0.03,-0.3 0.04,-0.64 0.04,-1.01zm3.03 -6.03c0.79,0.1 1.52,0.15 2.2,0.15 0.58,0 1.11,-0.05 1.6,-0.16 0.49,-0.11 0.92,-0.31 1.29,-0.59 0.36,-0.28 0.65,-0.67 0.85,-1.15 0.2,-0.49 0.31,-1.1 0.33,-1.85 0.02,-0.8 -0.14,-1.48 -0.46,-2.05 -0.33,-0.56 -0.78,-1.02 -1.36,-1.36 -0.58,-0.34 -1.25,-0.57 -2.01,-0.68 -0.76,-0.11 -1.57,-0.12 -2.44,-0.01l0 7.7zm34.82 -8.7c-0.19,0.15 -0.46,0.27 -0.79,0.35 -0.34,0.08 -0.66,0.2 -0.97,0.37 -0.31,0.17 -0.58,0.44 -0.81,0.81 -0.23,0.37 -0.35,0.92 -0.35,1.65l0 11.56c0,0.72 0.11,1.25 0.32,1.6 0.21,0.35 0.47,0.61 0.77,0.78 0.3,0.17 0.62,0.3 0.95,0.38 0.33,0.09 0.63,0.22 0.88,0.41l-8.67 0c0.17,-0.17 0.42,-0.3 0.75,-0.37 0.33,-0.08 0.65,-0.2 0.97,-0.37 0.32,-0.17 0.59,-0.43 0.82,-0.79 0.23,-0.36 0.35,-0.9 0.35,-1.64l0 -11.56c0,-0.73 -0.11,-1.28 -0.32,-1.65 -0.21,-0.37 -0.47,-0.63 -0.76,-0.81 -0.3,-0.17 -0.61,-0.29 -0.94,-0.37 -0.33,-0.08 -0.62,-0.19 -0.87,-0.35l8.67 0zm13.98 17.9c0.33,-0.26 0.56,-0.42 0.71,-0.5 0.15,-0.08 0.3,-0.19 0.45,-0.35 0.17,-0.17 0.39,-0.49 0.66,-0.97 0.27,-0.48 0.54,-1.04 0.81,-1.69l6.48 -14.4 6.27 14.55c0.15,0.38 0.31,0.74 0.46,1.09 0.15,0.35 0.34,0.66 0.55,0.95 0.21,0.28 0.46,0.53 0.74,0.76 0.28,0.22 0.63,0.41 1.05,0.56l-6.97 0c0.21,-0.12 0.41,-0.23 0.59,-0.32 0.18,-0.1 0.34,-0.19 0.48,-0.3 0.13,-0.1 0.25,-0.23 0.33,-0.37 0.08,-0.15 0.13,-0.33 0.13,-0.55 0,-0.38 -0.16,-0.97 -0.49,-1.79l-1.04 -2.53 -6.07 0 -1.24 2.76c-0.15,0.34 -0.26,0.63 -0.32,0.88 -0.06,0.25 -0.09,0.46 -0.09,0.63 0,0.24 0.05,0.44 0.15,0.59 0.1,0.15 0.22,0.29 0.36,0.4 0.14,0.11 0.31,0.21 0.51,0.31 0.19,0.1 0.38,0.19 0.55,0.3l-5.06 0zm5.66 -6.98l5.06 0 -2.46 -5.81 -2.6 5.81z"/></svg>
+    </div>
+  </section>
+
+  <!-- APLICAÇÃO -->
+  <section class="aplic" aria-label="A marca aplicada">
+    <div class="aplic__frame"><img src="assets/apron.jpg" alt="Avental bege bordado com o logotipo Fresa"></div>
+    <div class="aplic__cap wrap">
+      <h2 class="h-l">Presente em cada detalhe, do preparo à entrega</h2>
+    </div>
+  </section>
+
+  <!-- TEXTURA -->
+  <section class="textura" id="textura">
+    <div class="wrap">
+      <div class="textura__head">
+        <div><p class="eyebrow" style="margin-bottom:18px">04 — Identidade</p><h2 class="h-l split">Uma marca <em>com textura</em></h2></div>
+        <p>Azulejos, tecidos estampados e morangos ilustrados: padrões que trazem o calor mediterrâneo para cada ponto de contato.</p>
+      </div>
+      <div class="stack">
+        <div class="stack__card"><img src="assets/pattern-strawberry.jpg" alt="Padrão de morangos ilustrados sobre vermelho"><span class="label">Estampa morango</span><div class="shade"></div></div>
+        <div class="stack__card"><img src="assets/fabric.jpg" alt="Tecido com estampa floral vermelha"><span class="label">Floral mediterrâneo</span><div class="shade"></div></div>
+        <div class="stack__card"><img src="assets/pattern-tile.jpg" alt="Padrão de azulejo em azul, vermelho e laranja"><span class="label">Azulejo</span><div class="shade"></div></div>
+        <div class="stack__card"><img src="assets/wrap.jpg" alt="Papel de seda com selo Fresa Confeitaria"><span class="label">Selo artesanal</span><div class="shade"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PALETA -->
+  <section class="paleta" id="paleta">
+    <div class="wrap">
+      <p class="eyebrow" style="color:var(--red);margin-bottom:18px">05 — Cores e tipografia</p>
+      <h2 class="h-l split">Uma paleta <em>com sabor de fruta</em></h2>
+      <p class="paleta__sub">Toque em uma cor para copiar o código.</p>
+      <div class="swatches">
+        <button class="sw" style="background:#901317;color:#fae8d0" data-hex="#901317"><span class="copy">Copiar</span><b>Morango</b><small>#901317</small></button>
+        <button class="sw" style="background:#df868c;color:#5a0c0f" data-hex="#DF868C"><span class="copy">Copiar</span><b>Rosa</b><small>#DF868C</small></button>
+        <button class="sw" style="background:#fae8d0;color:#901317;box-shadow:inset 0 0 0 1px rgba(144,19,23,.18)" data-hex="#FAE8D0"><span class="copy">Copiar</span><b>Creme</b><small>#FAE8D0</small></button>
+        <button class="sw" style="background:#575931;color:#fae8d0" data-hex="#575931"><span class="copy">Copiar</span><b>Oliva</b><small>#575931</small></button>
+        <button class="sw" style="background:#cb8957;color:#3a1406" data-hex="#CB8957"><span class="copy">Copiar</span><b>Caramelo</b><small>#CB8957</small></button>
+      </div>
+      <div class="type-row">
+        <div class="type-card"><span class="aa" style="font-family:var(--sans);font-weight:400">Aa</span><p><b>Parkinsans</b>Textos e títulos. Arredondada, clara e acolhedora.</p></div>
+        <div class="type-card"><span class="aa" style="font-family:var(--serif);font-style:italic">Aa</span><p><b>Libre Baskerville</b>Destaques em itálico, com o toque artesanal.</p></div>
+        <div class="type-card"><span class="aa" style="font-family:var(--script);font-size:clamp(2.6rem,5vw,4.2rem)">Aa</span><p><b>Momo Signature</b>Frases manuscritas, como “Mais doce sempre”.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCE -->
+  <section class="doce" aria-label="Uma marca doce por natureza">
+    <img src="assets/strawberries.jpg" alt="">
+    <h2 class="split">Uma marca <em>doce</em> por natureza</h2>
+  </section>
+
+  <!-- EMBALAGENS -->
+  <section class="emb" id="embalagens">
+    <div class="wrap">
+      <div class="emb__head">
+        <div><p class="eyebrow" style="color:var(--red);margin-bottom:18px">06 — Embalagens</p><h2 class="h-l split">Cuidado que começa <em>antes da primeira mordida</em></h2></div>
+        <p>Caixas, tags e papéis que fazem da entrega um presente — a apresentação importa tanto quanto a receita.</p>
+      </div>
+      <div class="bento">
+        <div class="frame"><img class="par" data-speed="-5" src="assets/box2.jpg" alt="Caixa Fresa estampada com morangos e azulejos sobre a mesa"></div>
+        <div class="frame"><img src="assets/boxside.jpg" alt="Detalhe da lateral da caixa com azulejos"></div>
+        <div class="frame"><img src="assets/boxtop.jpg" alt="Detalhe da tampa da caixa com logotipo Fresa"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL -->
+  <section class="social">
+    <div class="social__script" aria-hidden="true"><div>Mais doce</div><div>sempre</div></div>
+    <div class="wrap">
+      <div class="social__head">
+        <p class="eyebrow" style="margin-bottom:18px">07 — Redes sociais</p>
+        <h2 class="h-l split">Uma presença <em>mais doce, sempre</em></h2>
+      </div>
+      <div class="phones">
+        <div class="phone par" data-speed="6"><img class="bg" src="assets/story.jpg" alt="Story com cheesecake de morango"><span class="script">Mais doce<br>sempre</span></div>
+        <div class="phone olive par" data-speed="-6"><img src="assets/fresa-cream.svg" alt="Logotipo Fresa em creme sobre verde oliva"></div>
+        <div class="phone par" data-speed="10"><img class="bg" src="assets/story-morango.jpg" alt="Story caramelo com morango ilustrado e folhas"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="close">
+    <div class="wrap">
+      <svg class="selo" viewBox="0 0 1109.03 1109.03" role="img" aria-label="Selo Fresa Confeitaria" font-family="Parkinsans, sans-serif" font-size="70.41"><g>
+   <path fill="#8C1418" d="M526.54 403.08l0 149.16 3.79 -1.7c38.8,-18.53 94.91,-23.01 99.97,41.18 0.23,2.96 -0.88,4.98 -1.95,3.74 -20.84,-33.09 -51.56,-41.53 -79.16,-34.74 -7.87,1.93 -20.1,7.46 -27.03,12.15 -35.7,24.3 -54.25,75.45 -11.84,121.84 5.42,5.93 11.24,11.29 17.09,16.4l0.13 0.12c5.44,5.26 11.35,9.9 17.18,14.87 7.82,6.99 15.05,14.2 20.76,22.6 5.16,8.08 9.35,18.01 11.82,31.08l0.02 0.12 -2.08 0 -0.53 0 -1.3 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.3 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.3 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.3 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.3 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.3 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.3 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.3 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.3 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.3 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.31 0 -1.3 0 -1.31 0 -1.31 0 -88.11 0 0 -5.85 0.32 0c29.09,0 53.08,-22.87 54.89,-51.52l0.12 0 0 -321.4c-27.81,2.16 -53.66,8.69 -77.33,20.05 -40.18,17.92 -59.1,70.29 -26.81,89.96 12.93,7.87 29.79,4.97 40.22,-5.49 3.1,-3.1 6.42,-8.61 7.28,-2.77 0.32,2.22 0.21,4.2 -0.04,6.4 -7.63,63.89 -88.41,65.31 -106.36,16.42 -5.53,-15.11 -4.04,-27.69 0.56,-42.62 10.91,-35.35 39,-65.9 100.83,-85.7 72.87,-21.2 145.28,-15.74 219.36,-22.6 25.41,-2.35 52.38,-3.77 75.48,-9.24 31.05,-7.37 57.55,-19.71 67.8,-49.65 0.43,-1.27 1.31,-3.58 2.62,-3.1 1.57,0.56 1.83,2.94 2.03,4.29 7.65,52.61 -18.46,100.13 -60.4,123.29 -3.49,1.92 -7.17,3.9 -11.3,3.76 -3.65,-0.14 -5.99,-5.52 -8.82,-8.64 -20.11,-22.09 -44.34,-29.67 -72.85,-33.32 -29.4,-3.79 -58.31,-3.58 -86.69,0.93z"/>
+   <path fill="#8C1418" d="M589.98 796.29c3.87,-29.33 -1.66,-52.19 -14.45,-72.33 -11.44,-18.04 -26.64,-28.22 -38.15,-44.77 -58.37,-83.93 65.1,-149.01 89.88,-48.53 60.59,-18.5 94.06,22.17 69.96,73.02 -26.65,44.52 -64.71,71.93 -107.24,92.61zm65.29 -94.95c4.15,1.04 4.85,8.64 1.55,16.96 -3.3,8.32 -9.35,14.21 -13.5,13.16 -4.15,-1.04 -4.85,-8.65 -1.55,-16.96 3.31,-8.32 9.35,-14.22 13.5,-13.15zm-15.16 -44.48c3.28,0.28 4.75,5.97 3.27,12.69 -1.48,6.72 -5.35,11.95 -8.63,11.66 -3.28,-0.28 -4.75,-5.97 -3.27,-12.69 1.48,-6.73 5.35,-11.95 8.63,-11.66zm-35.86 19.2c4.11,0.35 5.94,7.46 4.09,15.87 -1.85,8.41 -6.69,14.94 -10.79,14.58 -4.11,-0.35 -5.94,-7.46 -4.09,-15.87 1.85,-8.41 6.69,-14.94 10.79,-14.58zm-18.56 -52.42c4.11,0.35 5.94,7.46 4.09,15.87 -1.85,8.41 -6.69,14.94 -10.79,14.58 -4.11,-0.35 -5.95,-7.46 -4.09,-15.87 1.85,-8.41 6.69,-14.94 10.79,-14.58z"/>
+   <path fill="#646638" d="M613.59 529.81c-0.15,-9.4 -7.84,-17.48 -8.96,-26.27 8.58,10.05 16.59,21.74 19.32,36.58 8.49,-15.26 12.82,-39.18 -20.31,-61 -7.81,-5.14 -16.17,-9.04 -24.2,-14.21 -4.15,-2.66 -8.3,-5.34 -12.45,-8.01 0.43,25.31 0.72,62.45 38.71,76.55 5.9,2.19 8.01,3.98 7.88,-3.64z"/>
+   <path fill="#646638" d="M702.43 506.5c-26.28,8.27 -47.82,29.44 -65.76,60.46 2.89,-48.87 34.14,-88.67 121.85,-88.19 -21.59,15.32 -28.8,25.89 -35.5,50.11 -9.97,36.01 -30.66,57.98 -66.37,64.67 67.62,8.4 62,37.2 62.6,63.16 -12.05,-29.04 -39.47,-42.23 -75.36,-46.7 -4.43,-34.83 7.59,-69.43 58.54,-103.51z"/>
+   
+   <circle fill="none" stroke="#8C1418" stroke-width="10.14" cx="554.51" cy="554.51" r="549.44"/>
+   <text x="155.33" y="376.05"  fill="#646638"><tspan rotate="294"> </tspan></text>
+   <text x="170.26" y="345.07"  fill="#646638"><tspan rotate="300">F</tspan></text>
+   <text x="196.95" y="302.12"  fill="#646638"><tspan rotate="308">R</tspan></text>
+   <text x="235.12" y="254.94"  fill="#646638"><tspan rotate="317">E</tspan></text>
+   <text x="273.07" y="219.74"  fill="#646638"><tspan rotate="322">S</tspan></text>
+   <text x="318.84" y="185.94"  fill="#646638"><tspan rotate="330">A</tspan></text>
+   <text x="360.03" y="162.71"  fill="#646638"><tspan rotate="336"> </tspan></text>
+   <text x="391.15" y="148.63"  fill="#646638"><tspan rotate="341">C</tspan></text>
+   <text x="456.71" y="128.21"  fill="#646638"><tspan rotate="349">O</tspan></text>
+   <text x="526.49" y="118.35"  fill="#646638"><tspan rotate="358">N</tspan></text>
+   <text x="591.2" y="119.05"  fill="#646638"><tspan rotate="7">F</tspan></text>
+   <text x="641.83" y="126.09"  fill="#646638"><tspan rotate="13">E</tspan></text>
+   <text x="691.05" y="139.47"  fill="#646638"><tspan rotate="19">I</tspan></text>
+   <text x="729.99" y="153.55"  fill="#646638"><tspan rotate="27">T</tspan></text>
+   <text x="771.82" y="175.38"  fill="#646638"><tspan rotate="33">A</tspan></text>
+   <text x="823.92" y="209.88"  fill="#646638"><tspan rotate="41">R</tspan></text>
+   <text x="868.43" y="251.42"  fill="#646638"><tspan rotate="46">I</tspan></text>
+   <text x="896.1" y="281.7"  fill="#646638"><tspan rotate="54">A</tspan></text>
+   <circle fill="none" stroke="#8C1418" stroke-width="10.14" cx="554.51" cy="554.52" r="362.42"/>
+   <text x="931.25" y="775.98"  fill="#646638"><tspan rotate="123"> </tspan></text>
+   <text x="913.08" y="804.84"  fill="#646638"><tspan rotate="128">F</tspan></text>
+   <text x="881.33" y="844.27"  fill="#646638"><tspan rotate="134">R</tspan></text>
+   <text x="837.82" y="887.22"  fill="#646638"><tspan rotate="141">E</tspan></text>
+   <text x="797.62" y="918.2"  fill="#646638"><tspan rotate="150">S</tspan></text>
+   <text x="747.64" y="946.37"  fill="#646638"><tspan rotate="156">A</tspan></text>
+   <text x="704.33" y="965.38"  fill="#646638"><tspan rotate="161"> </tspan></text>
+   <text x="672.09" y="975.94"  fill="#646638"><tspan rotate="167">C</tspan></text>
+   <text x="603.87" y="990.02"  fill="#646638"><tspan rotate="178">O</tspan></text>
+   <text x="533.53" y="992.13"  fill="#646638"><tspan rotate="187">N</tspan></text>
+   <text x="469.39" y="982.98"  fill="#646638"><tspan rotate="193">F</tspan></text>
+   <text x="420.04" y="971.72"  fill="#646638"><tspan rotate="202">E</tspan></text>
+   <text x="372.8" y="952"  fill="#646638"><tspan rotate="207">I</tspan></text>
+   <text x="335.69" y="933.69"  fill="#646638"><tspan rotate="213">T</tspan></text>
+   <text x="296.55" y="907.64"  fill="#646638"><tspan rotate="218">A</tspan></text>
+   <text x="248.68" y="866.8"  fill="#646638"><tspan rotate="227">R</tspan></text>
+   <text x="207.98" y="821.74"  fill="#646638"><tspan rotate="235">I</tspan></text>
+   <text x="184.26" y="787.95"  fill="#646638"><tspan rotate="240">A</tspan></text>
+   <circle fill="#8C1418" cx="100.81" cy="555.17" r="13.47"/>
+   <circle fill="#8C1418" cx="1003.2" cy="555.17" r="13.47"/>
+  </g>
+ </g></svg>
+      <img class="logo reveal" src="assets/fresa.svg" alt="Fresa Confeitaria">
+      <p class="big split">Há detalhes que transformam um doce <em>em lembrança.</em></p>
+      <a class="btn" href="#topo">Ver a apresentação de novo <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5"/></svg></a>
+    </div>
+    <footer class="foot">
+      <div class="wrap"><span>Fresa Confeitaria · Apresentação de marca</span><span>2026</span></div>
+    </footer>
+  </section>
+</main>
+
+<script src="assets/som.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+(() => {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const root = document.documentElement;
+  if (reduce || !window.gsap) { root.classList.add('reduce'); }
+
+  /* ---- menu ---- */
+  const nav = document.querySelector('.nav'), burger = document.querySelector('.nav__burger');
+  burger.addEventListener('click', () => {
+    const o = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', o); burger.setAttribute('aria-label', o ? 'Fechar menu' : 'Abrir menu');
+  });
+  nav.querySelectorAll('.nav__links a').forEach(a => a.addEventListener('click', () => { nav.classList.remove('open'); burger.setAttribute('aria-expanded', false); }));
+
+  /* ---- swatches ---- */
+  const toast = document.querySelector('.toast'); let tt;
+  document.querySelectorAll('.sw').forEach(b => b.addEventListener('click', async () => {
+    const hex = b.dataset.hex;
+    try { await navigator.clipboard.writeText(hex); toast.textContent = `${hex} copiado`; }
+    catch { toast.textContent = hex; }
+    toast.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => toast.classList.remove('show'), 1800);
+  }));
+
+  if (root.classList.contains('reduce')) return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ---- smooth scroll ---- */
+  let lenis;
+  if (window.Lenis) {
+    lenis = new Lenis({ duration: 1.15, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+    window.__lenis = lenis;
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href')); if (!t) return;
+      e.preventDefault(); lenis.scrollTo(t, { duration: 1.6 });
+    }));
+  }
+
+  /* ---- split words ---- */
+  document.querySelectorAll('.split').forEach(el => {
+    const walk = node => [...node.childNodes].forEach(n => {
+      if (n.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        n.textContent.split(/(\s+)/).forEach(part => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) { frag.append(document.createTextNode(' ')); return; }
+          const w = document.createElement('span'); w.className = 'w';
+          const i = document.createElement('span'); i.textContent = part; w.append(i); frag.append(w);
+        });
+        n.replaceWith(frag);
+      } else if (n.nodeType === 1 && n.tagName !== 'BR') walk(n);
+    });
+    walk(el);
+  });
+  const words = el => el.querySelectorAll('.w > span');
+
+  /* ---- cursor ---- */
+  const cur = document.querySelector('.cursor');
+  if (matchMedia('(hover:hover)').matches) {
+    const xTo = gsap.quickTo(cur, 'x', { duration: .45, ease: 'power3' }), yTo = gsap.quickTo(cur, 'y', { duration: .45, ease: 'power3' });
+    addEventListener('pointermove', e => { cur.style.opacity = 1; xTo(e.clientX); yTo(e.clientY); });
+    document.querySelectorAll('a,button,.frame').forEach(el => {
+      el.addEventListener('pointerenter', () => cur.classList.add('big'));
+      el.addEventListener('pointerleave', () => cur.classList.remove('big'));
+    });
+  }
+
+  /* ---- progress + nav hide ---- */
+  gsap.to('.progress', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: true } });
+  ScrollTrigger.create({ start: 200, end: 'max', onUpdate: s => nav.classList.toggle('is-hidden', s.direction === 1 && !nav.classList.contains('open')) });
+
+  /* ---- intro: suspense, a marca ainda não aparece ---- */
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  scrollTo(0, 0); if (lenis) lenis.scrollTo(0, { immediate: true });
+  document.documentElement.style.overflow = 'hidden';
+  const intro = gsap.timeline({ defaults: { ease: 'expo.out' }, onComplete: () => { document.documentElement.style.overflow = ''; ScrollTrigger.refresh(); } });
+  gsap.set('.intro__bg', { scale: 1.12, opacity: 0 });
+  intro
+    .to('.intro__bg', { opacity: 1, scale: 1, duration: 3.2, ease: 'power2.out' })
+    .from('.intro__hint', { opacity: 0, y: 14, duration: 1.2 }, .4)
+    .from(words(document.querySelector('.intro h1')), { yPercent: 115, opacity: 0, filter: 'blur(10px)', duration: 1.4, stagger: .09 }, .9)
+    .from('.intro .scroll-cue', { opacity: 0, duration: 1 }, '-=.6')
+    .from('.nav', { opacity: 0, y: -20, duration: 1 }, '<');
+
+  /* ---- intro scroll: a frase se afasta ---- */
+  gsap.to('.intro__in', { scale: .9, opacity: 0, filter: 'blur(6px)', ease: 'none', scrollTrigger: { trigger: '.intro', start: 'top top', end: 'bottom 30%', scrub: true } });
+  gsap.to('.intro__bg', { yPercent: 12, ease: 'none', scrollTrigger: { trigger: '.intro', start: 'top top', end: 'bottom top', scrub: true } });
+
+  /* ---- generic reveals ---- */
+  document.querySelectorAll('main .split').forEach(el => {
+    if (el.closest('.nasce,.final')) return;
+    gsap.from(words(el), { yPercent: 115, duration: 1.1, ease: 'expo.out', stagger: .04, scrollTrigger: { trigger: el, start: 'top 85%' } });
+  });
+  gsap.utils.toArray('.reveal').forEach(el => gsap.from(el, { y: 30, opacity: 0, duration: 1.2, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%' } }));
+  gsap.utils.toArray('.clip-in').forEach(el => gsap.from(el, { clipPath: 'inset(100% 0 0 0 round 28px)', duration: 1.6, ease: 'expo.inOut', scrollTrigger: { trigger: el, start: 'top 80%' } }));
+  gsap.utils.toArray('.par').forEach(el => gsap.fromTo(el, { yPercent: -(+el.dataset.speed || 8) }, { yPercent: +el.dataset.speed || 8, ease: 'none', scrollTrigger: { trigger: el.parentElement, start: 'top bottom', end: 'bottom top', scrub: true } }));
+  gsap.from('.card', { y: 60, opacity: 0, duration: 1.2, ease: 'expo.out', stagger: .12, scrollTrigger: { trigger: '.cards', start: 'top 82%' } });
+
+  /* ---- nasce: o nome surge letra por letra ---- */
+  const nt = gsap.timeline({ scrollTrigger: { trigger: '.nasce', start: 'top top', end: '+=220%', pin: true, scrub: 1 } });
+  nt.from(words(document.querySelector('.nasce__lead')), { yPercent: 115, stagger: .06, duration: .4 })
+    .from('.nasce__title strong span', { opacity: 0, y: 60, filter: 'blur(14px)', stagger: .12, duration: .5 }, '+=.1')
+    .to({}, { duration: .4 })
+    .to('.nasce__fill', { clipPath: 'circle(75% at 50% 50%)', duration: 1, ease: 'power2.in' })
+    .to('.nasce__after', { opacity: 1, duration: .4 })
+    .from('.nasce__after p', { y: 50, duration: .5 }, '<');
+
+  /* ---- momentos: horizontal ---- */
+  const track = document.querySelector('.track');
+  const dist = () => Math.max(0, track.scrollWidth - innerWidth);
+  const ht = gsap.to(track, { x: () => -dist(), ease: 'none', scrollTrigger: { trigger: '.momentos', start: 'top top', end: () => '+=' + dist(), pin: '.momentos', scrub: 1, invalidateOnRefresh: true } });
+  track.querySelectorAll('.frame img').forEach(img => gsap.fromTo(img, { xPercent: -6 }, { xPercent: 6, ease: 'none', scrollTrigger: { trigger: img.parentElement, containerAnimation: ht, start: 'left right', end: 'right left', scrub: true } }));
+
+  /* ---- marquee ---- */
+  const mq = document.querySelector('.marquee__in');
+  gsap.fromTo(mq, { xPercent: 0 }, { xPercent: -35, ease: 'none', scrollTrigger: { trigger: '.nome', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+  /* ---- finalmente: a marca surge (desenhada, preenchida, ambientada) ---- */
+  const wm = document.querySelector('.wm-fresa'), len = wm.getTotalLength();
+  gsap.set(wm, { strokeDasharray: len, strokeDashoffset: len });
+  const ft = gsap.timeline({ scrollTrigger: {
+    trigger: '.final', start: 'top top', end: '+=340%', pin: true, scrub: 1,
+    onUpdate: s => { root.classList.toggle('revealed', s.progress > .8); if (s.direction === 1 && s.progress > .42 && !ft._dinged) { ft._dinged = true; window.fresaSom && fresaSom.reveal(); } if (s.progress < .3) ft._dinged = false; }
+  } });
+  ft.from('.final__txt', { opacity: 0, y: 40, duration: .4 })
+    .to('.final__txt', { opacity: 0, y: -30, filter: 'blur(10px)', duration: .4 }, '+=.4')
+    .to('.final__dark', { opacity: 1, duration: .5 }, '<.1')
+    .to('.final__glow', { opacity: 1, duration: .6 })
+    .to(wm, { strokeDashoffset: 0, duration: 1.6, ease: 'power1.inOut' }, '<')
+    .to(wm, { fill: '#FAE8D0', duration: .5 })
+    .to(wm, { strokeOpacity: 0, duration: .3 }, '<.2')
+    .to('.wm-conf', { opacity: 1, duration: .4 }, '<')
+    .to({}, { duration: .3 })
+    .to('.final__photo', { opacity: 1, scale: 1, duration: 1, ease: 'power2.out' })
+    .to('.final__dark', { opacity: 0, duration: .8 }, '<')
+    .to('.final__glow', { opacity: 0, duration: .5 }, '<')
+    .to(wm, { fill: '#8C1418', duration: .8 }, '<.1')
+    .to('.wm-conf', { fill: '#646638', duration: .8 }, '<')
+    .from('.final__logo', { scale: .94, duration: 1.1, ease: 'power2.out' }, '<')
+    .to({}, { duration: .5 });
+  ScrollTrigger.create({ trigger: '.aplic', start: 'top bottom', onEnter: () => root.classList.add('revealed') });
+
+  /* ---- aplicação: frame opens ---- */
+  const at = gsap.timeline({ scrollTrigger: { trigger: '.aplic', start: 'top top', end: '+=140%', pin: true, scrub: 1 } });
+  const side = innerWidth < 768 ? 6 : 18, topb = innerWidth < 768 ? 22 : 14;
+  at.fromTo('.aplic__frame', { clipPath: 'inset(' + topb + '% ' + side + '% ' + topb + '% ' + side + '% round 28px)' }, { clipPath: 'inset(0% 0% 0% 0% round 0px)', ease: 'power2.inOut', duration: 1, immediateRender: true })
+    .fromTo('.aplic__frame img', { scale: 1.2 }, { scale: 1, ease: 'power2.inOut', duration: 1, immediateRender: true }, '<')
+    .to('.aplic__cap', { opacity: 1, duration: .3 }, '-=.25')
+    .from('.aplic__cap .h-l', { y: 40, duration: .3 }, '<');
+
+  /* ---- textura: stacked cards ---- */
+  const cards = gsap.utils.toArray('.stack__card');
+  cards.forEach((c, i) => {
+    if (i === cards.length - 1) return;
+    gsap.to(c, { scale: .9, ease: 'none', scrollTrigger: { trigger: cards[i + 1], start: 'top bottom', end: 'top 15%', scrub: true } });
+    gsap.to(c.querySelector('.shade'), { opacity: .5, ease: 'none', scrollTrigger: { trigger: cards[i + 1], start: 'top bottom', end: 'top 15%', scrub: true } });
+  });
+
+  /* ---- swatches enter ---- */
+  gsap.from('.sw', { y: 80, opacity: 0, duration: 1.2, ease: 'expo.out', stagger: .08, scrollTrigger: { trigger: '.swatches', start: 'top 85%' } });
+
+  /* ---- doce ---- */
+  gsap.to('.doce img', { scale: 1, ease: 'none', scrollTrigger: { trigger: '.doce', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+  /* ---- social script ---- */
+  const sc = document.querySelectorAll('.social__script div');
+  gsap.fromTo(sc[0], { x: '10vw' }, { x: '-30vw', ease: 'none', scrollTrigger: { trigger: '.social', start: 'top bottom', end: 'bottom top', scrub: true } });
+  gsap.fromTo(sc[1], { x: '-30vw' }, { x: '5vw', ease: 'none', scrollTrigger: { trigger: '.social', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+  addEventListener('load', () => { if (intro.isActive()) { scrollTo(0, 0); lenis && lenis.scrollTo(0, { immediate: true }); } ScrollTrigger.refresh(); });
+})();
+</script>
+</body>
+</html>
