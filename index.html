@@ -316,7 +316,6 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
   <section class="intro" id="topo">
     <div class="intro__bg" aria-hidden="true"></div>
     <div class="intro__in">
-      <p class="intro__hint">Uma história em detalhes <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span></p>
       <h1 class="split">Há detalhes que transformam um doce <em>em lembrança.</em></h1>
     </div>
     <span class="scroll-cue">Role para descobrir <i></i></span>
@@ -326,7 +325,6 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
   <section class="origem" id="origem">
     <div class="wrap">
       <div>
-        <p class="eyebrow" style="color:var(--red);margin-bottom:22px">01 — A origem</p>
         <h2 class="h-xl split">Tudo começou com a casquinha de um cheesecake</h2>
         <p class="lead reveal">Foi a atenção a um detalhe da sobremesa favorita que despertou a vontade de experimentar uma receita própria.</p>
         <p class="quote reveal">Mas ficou tão bom que todo mundo deveria experimentar…</p>
@@ -348,7 +346,6 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
   <section class="pilares">
     <div class="wrap">
       <div class="head">
-        <p class="eyebrow" style="margin-bottom:18px">02 — O que nos guia</p>
         <h2 class="h-l split">Uma confeitaria delivery <em>de verdade</em></h2>
       </div>
       <div class="cards">
@@ -379,7 +376,6 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
   <section class="nome" id="nome">
     <div class="wrap">
       <div>
-        <p class="eyebrow" style="margin-bottom:18px">03 — O nome</p>
         <h2 class="nome__word split">Fresa</h2>
         <p class="nome__phon">/ˈfɾe.sa/ · substantivo feminino</p>
         <p class="nome__def reveal">Fresa significa morango em espanhol.</p>
@@ -418,7 +414,7 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
   <section class="textura" id="textura">
     <div class="wrap">
       <div class="textura__head">
-        <div><p class="eyebrow" style="margin-bottom:18px">04 — Identidade</p><h2 class="h-l split">Uma marca <em>com textura</em></h2></div>
+        <div><h2 class="h-l split">Uma marca <em>com textura</em></h2></div>
         <p>Azulejos, tecidos estampados e morangos ilustrados: padrões que trazem o calor mediterrâneo para cada ponto de contato.</p>
       </div>
       <div class="stack">
@@ -433,7 +429,6 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
   <!-- PALETA -->
   <section class="paleta" id="paleta">
     <div class="wrap">
-      <p class="eyebrow" style="color:var(--red);margin-bottom:18px">05 — Cores e tipografia</p>
       <h2 class="h-l split">Uma paleta <em>com sabor de fruta</em></h2>
       <p class="paleta__sub">Toque em uma cor para copiar o código.</p>
       <div class="swatches">
@@ -461,7 +456,7 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
   <section class="emb" id="embalagens">
     <div class="wrap">
       <div class="emb__head">
-        <div><p class="eyebrow" style="color:var(--red);margin-bottom:18px">06 — Embalagens</p><h2 class="h-l split">Cuidado que começa <em>antes da primeira mordida</em></h2></div>
+        <div><h2 class="h-l split">Cuidado que começa <em>antes da primeira mordida</em></h2></div>
         <p>Caixas, tags e papéis que fazem da entrega um presente — a apresentação importa tanto quanto a receita.</p>
       </div>
       <div class="bento">
@@ -477,7 +472,6 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
     <div class="social__script" aria-hidden="true"><div>Mais doce</div><div>sempre</div></div>
     <div class="wrap">
       <div class="social__head">
-        <p class="eyebrow" style="margin-bottom:18px">07 — Redes sociais</p>
         <h2 class="h-l split">Uma presença <em>mais doce, sempre</em></h2>
       </div>
       <div class="phones">
@@ -633,7 +627,6 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
   gsap.set('.intro__bg', { scale: 1.12, opacity: 0 });
   intro
     .to('.intro__bg', { opacity: 1, scale: 1, duration: 3.2, ease: 'power2.out' })
-    .from('.intro__hint', { opacity: 0, y: 14, duration: 1.2 }, .4)
     .from(words(document.querySelector('.intro h1')), { yPercent: 115, opacity: 0, filter: 'blur(10px)', duration: 1.4, stagger: .09 }, .9)
     .from('.intro .scroll-cue', { opacity: 0, duration: 1 }, '-=.6')
     .from('.nav', { opacity: 0, y: -20, duration: 1 }, '<');
