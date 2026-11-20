@@ -273,6 +273,9 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
   .scroll-cue{display:none}
 }
 @media (max-width:560px){
+  .aplic__frame img{object-position:58% 30%}
+  .final__photo{object-position:72% 50%}
+  .intro h1{font-size:clamp(2rem,9vw,2.6rem)}
   .track .frame{width:74vw;height:52vh}
   .track .frame:nth-child(even){height:44vh}
   .foot .wrap{flex-direction:column}
@@ -457,7 +460,6 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
     <div class="wrap">
       <div class="emb__head">
         <div><h2 class="h-l split">Cuidado que começa <em>antes da primeira mordida</em></h2></div>
-        <p>Caixas, tags e papéis que fazem da entrega um presente — a apresentação importa tanto quanto a receita.</p>
       </div>
       <div class="bento">
         <div class="frame"><img class="par" data-speed="-5" src="assets/box2.jpg" alt="Caixa Fresa estampada com morangos e azulejos sobre a mesa"></div>
@@ -572,6 +574,7 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
 
   if (root.classList.contains('reduce')) return;
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true });
 
   /* ---- smooth scroll ---- */
   let lenis;
@@ -622,14 +625,15 @@ em{font-family:var(--serif);font-style:italic;font-weight:400}
   /* ---- intro: suspense, a marca ainda não aparece ---- */
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   scrollTo(0, 0); if (lenis) lenis.scrollTo(0, { immediate: true });
-  document.documentElement.style.overflow = 'hidden';
-  const intro = gsap.timeline({ defaults: { ease: 'expo.out' }, onComplete: () => { document.documentElement.style.overflow = ''; ScrollTrigger.refresh(); } });
+  const intro = gsap.timeline({ defaults: { ease: 'expo.out' } });
   gsap.set('.intro__bg', { scale: 1.12, opacity: 0 });
   intro
     .to('.intro__bg', { opacity: 1, scale: 1, duration: 3.2, ease: 'power2.out' })
-    .from(words(document.querySelector('.intro h1')), { yPercent: 115, opacity: 0, filter: 'blur(10px)', duration: 1.4, stagger: .09 }, .9)
+    .from(words(document.querySelector('.intro h1')), { yPercent: 115, opacity: 0, filter: 'blur(10px)', duration: 1.1, stagger: .06 }, .3)
     .from('.intro .scroll-cue', { opacity: 0, duration: 1 }, '-=.6')
     .from('.nav', { opacity: 0, y: -20, duration: 1 }, '<');
+
+  setTimeout(() => { if (intro.progress() < 1) intro.progress(1); }, 4500);
 
   /* ---- intro scroll: a frase se afasta ---- */
   gsap.to('.intro__in', { scale: .9, opacity: 0, filter: 'blur(6px)', ease: 'none', scrollTrigger: { trigger: '.intro', start: 'top top', end: 'bottom 30%', scrub: true } });
